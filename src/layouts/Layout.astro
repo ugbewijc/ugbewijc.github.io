@@ -1,0 +1,275 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="John Chioma Website" />
+		<meta name="viewport" content="width=device-width,  initial-scale=1.0" />		
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600&family=Roboto:ital,wght@0,300;0,400;1,300;1,400&family=Rowdies:wght@300;400&display=swap');
+	/*font-family: 'Baloo 2', cursive;
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Rowdies', cursive;*/
+
+	:root {
+	}
+	html {
+	}
+	.main {
+		padding: 1% 5%;
+	}
+
+	.intro{
+		margin: 10px 0 10px 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 60vh;
+		font-family: 'Rowdies', cursive;
+		background: radial-gradient(circle at 12% 92%, #89BDF5 28%, #6693FF 70%);
+	}
+
+	.intro > * {
+		margin: .3rem;
+	}
+
+	.greeting{
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.2rem;
+	}
+
+	.name{
+		font-size: 2.5rem;
+		text-transform: capitalize;
+		text-align: center;
+	}
+
+	.section-intro{
+	margin: 40px 0 10px 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.4rem;
+	}
+
+	.services, .project{
+		margin: 10px 0 10px 0;
+		display: flex;
+		justify-content: space-evenly;
+	}
+
+	.cta {
+	background-color: #ffff00ed;
+	font-weight: 700;
+	border-radius: 20px;
+	padding: 20px;
+	}
+
+	.cta:hover{
+	border-color: #999996;
+	}
+
+	.service-card, .project-card{
+		box-shadow: 5px 5px 15px 5px #999996;
+		margin: 4px 0 30px 0;
+		text-align: center;
+		border-radius: 0 0 50px 50px;
+		padding: 0 0 20px 0;
+		min-width: 30%;
+	}
+
+	.card-header{
+	height: 150px;
+	background:#89BDF5;
+	border-radius:100% 0% 100% 0% / 0% 50% 50% 100%;
+	}
+
+	.card-header i{
+	color: #fff;
+	font-size: 72px;
+	}
+
+	.card-content{
+	width: 70%;
+	margin: 0 auto;
+	}
+	.card-title{
+		text-transform: uppercase;
+		font-size: 1.5rem;
+		font-family: 'Baloo 2', cursive;
+	}
+
+	.card-text{
+	font-family: 'Roboto', sans-serif;
+	font-style: italic;
+	font-weight: 400;
+	font-size: 1.1rem;
+	}
+
+	.hire-me{
+		margin: 10px 0 70px 0;
+		text-align: center;
+		font-family: 'Roboto', sans-serif;
+		font-size: 1.2rem;
+		line-height: 1.6;
+	}
+
+	.contact-form{
+	margin: 10px 0 10px 0;
+	display: flex;
+	justify-content: space-evenly;
+	}
+
+	.header {
+		padding: 5% 5% 0 5%;
+	display: flex;
+	justify-content: space-between;
+	}
+
+	.header > a{
+	padding: 0.5rem 0 0.5rem 0;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 700;
+	color: #000;
+	}
+
+	.social-media-contact{
+	justify-content: end;
+	}
+
+	.social-media-contact > a{
+		padding: .2rem;
+		text-decoration: none;
+	}
+
+	.social-media-contact svg:hover{
+	transform: scale(1.3);
+	}
+
+	.contact-form > * {
+	margin: 10px 0 10px 0;
+	}
+
+	.required{
+	color: #ff0000;
+	font-size: 0.8rem;
+	font-style: italic;
+	font-weight: bolder;
+	letter-spacing: 1px; 
+	}
+
+	.required-input {
+	color: #ff0000;
+	}
+
+	.footer{
+	position: fixed;
+	bottom: 0;
+	right: 1rem;
+	text-align: center;
+	}
+
+	/* Modal */
+	.modal {
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #000000bd;
+	transition: opacity .25s ease-in-out;
+	z-index: 10;
+	}
+
+	.modal__bg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	}
+
+	.modal-state {
+	display: none;
+	}
+
+	.modal-state:checked + .modal {
+	opacity: 1;
+	visibility: visible;
+	}
+
+	.modal-state:checked + .modal .modal__inner {
+	top: 0;
+	}
+
+	.modal__inner {
+	transition: top .25s ease;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 70%;
+	margin: auto;
+	overflow: auto;
+	background: #fff;
+	padding: 3rem 2rem;
+	height: 80%;
+	}
+
+	.modal__close {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	width: 1.1em;
+	height: 1.1em;
+	cursor: pointer;
+	}
+
+	.modal__close:after,
+	.modal__close:before {
+	content: '';
+	position: absolute;
+	width: 2px;
+	height: 1.5em;
+	background: #000;
+	display: block;
+	transform: rotate(45deg);
+	left: 50%;
+	margin: -3px 0 0 -1px;
+	top: 0;
+	}
+
+	.modal__close:hover:after,
+	.modal__close:hover:before {
+	background: #aaa;
+	}
+
+	.modal__close:before {
+	transform: rotate(-45deg);
+	}
+</style>
