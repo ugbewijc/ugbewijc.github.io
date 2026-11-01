@@ -86,9 +86,16 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.about-bio {
+    color: var(--app-text-muted);
+    line-height: 1.7;
+    word-spacing: 0.1em;
+}
+
 .card-body-text {
     font-size: 13px;
     margin: 0;
+    color: var(--app-text-muted);
 }
 
 // Navbar Styles
